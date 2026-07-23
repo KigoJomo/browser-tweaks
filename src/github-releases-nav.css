@@ -1,0 +1,11 @@
+[data-github-releases-nav-link] .octicon {
+  flex-shrink: 0;
+  fill: currentColor;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-github-releases-nav-link] {
+    scroll-behavior: auto;
+    transition: none;
+  }
+}

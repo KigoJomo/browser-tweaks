@@ -1,0 +1,137 @@
+html,
+body {
+  background: #0b0f14 !important;
+  color: #e6edf3 !important;
+}
+
+body :where(:not(svg, path, rect, circle, ellipse, polygon, line)) {
+  color: #e6edf3 !important;
+}
+
+body,
+#app,
+.header,
+.content,
+.wrapper,
+.page,
+.container,
+.page-container {
+  background: transparent !important;
+  color: inherit !important;
+}
+
+a {
+  color: #84c5ff !important;
+}
+
+a:hover,
+a:focus {
+  color: #a7d5ff !important;
+}
+
+[data-testid="results-speed-value"],
+[data-testid="results-speed-units"],
+.speed,
+.speed-units,
+.result-item,
+.result-container,
+#app [data-testid="results-speed-value"],
+#app [data-testid="results-speed-units"] {
+  color: #fff !important;
+}
+
+.card,
+.panel,
+.tile,
+.result-detail,
+.result-module,
+.result-container,
+.info {
+  background: #10161d !important;
+  color: #e6edf3 !important;
+  border-color: #1f2a36 !important;
+}
+
+button,
+.btn {
+  background: #1c2734 !important;
+  color: #e6edf3 !important;
+  border: 1px solid #304256 !important;
+}
+
+button:hover,
+.btn:hover {
+  background: #223043 !important;
+  border-color: #3a5169 !important;
+}
+
+button:disabled,
+.btn:disabled {
+  opacity: 0.6 !important;
+}
+
+svg {
+  color: #c9d1d9 !important;
+  fill: currentColor;
+}
+
+svg path[fill="#000"],
+svg path[fill="#111"],
+svg path[fill="#222"] {
+  fill: #c9d1d9 !important;
+}
+
+svg path[stroke="#000"],
+svg path[stroke="#111"],
+svg path[stroke="#222"] {
+  stroke: #c9d1d9 !important;
+}
+
+hr,
+.divider,
+.separator,
+tr,
+td,
+th {
+  border-color: #1f2a36 !important;
+}
+
+input,
+select,
+textarea,
+table,
+.tooltip,
+.popover {
+  background: #0f141a !important;
+  color: #e6edf3 !important;
+  border-color: #243042 !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #92a7bd !important;
+}
+
+thead {
+  background: #131a21 !important;
+}
+
+tbody tr:nth-child(odd) {
+  background: #0e1319 !important;
+}
+
+tbody tr:nth-child(even) {
+  background: #10161d !important;
+}
+
+footer,
+.footer {
+  background: transparent !important;
+  color: #9fb3c8 !important;
+}
+
+img,
+video,
+canvas {
+  filter: none !important;
+}
