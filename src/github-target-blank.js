@@ -12,39 +12,56 @@
 
   const LINK_SELECTOR = "a[href]";
 
-  function setTargetBlank(link) {
+  function isExternalLink(link, baseUrl) {
+    try {
+      const url = new URL(link.getAttribute("href"), baseUrl);
+      return (
+        (url.protocol === "http:" || url.protocol === "https:") &&
+        url.hostname !== new URL(baseUrl).hostname
+      );
+    } catch {
+      return false;
+    }
+  }
+
+  function setExternalTargetBlank(link, baseUrl) {
+    if (!isExternalLink(link, baseUrl)) return false;
     if (link.getAttribute("target") === "_blank") return false;
 
     link.setAttribute("target", "_blank");
     return true;
   }
 
-  function forceTargetBlank(root) {
+  function forceExternalTargets(root, baseUrl) {
     let updated = 0;
 
-    if (root.matches?.(LINK_SELECTOR) && setTargetBlank(root)) {
+    if (
+      root.matches?.(LINK_SELECTOR) &&
+      setExternalTargetBlank(root, baseUrl)
+    ) {
       updated += 1;
     }
 
     for (const link of root.querySelectorAll?.(LINK_SELECTOR) ?? []) {
-      if (setTargetBlank(link)) updated += 1;
+      if (setExternalTargetBlank(link, baseUrl)) updated += 1;
     }
 
     return updated;
   }
 
   function install(doc, windowLike) {
-    forceTargetBlank(doc);
+    const baseUrl = windowLike.location.href;
+    forceExternalTargets(doc, baseUrl);
 
     const observer = new windowLike.MutationObserver((mutations) => {
       for (const mutation of mutations) {
         if (mutation.type === "attributes") {
-          forceTargetBlank(mutation.target);
+          forceExternalTargets(mutation.target, baseUrl);
           continue;
         }
 
         for (const node of mutation.addedNodes) {
-          forceTargetBlank(node);
+          forceExternalTargets(node, baseUrl);
         }
       }
     });
@@ -59,5 +76,10 @@
     return () => observer.disconnect();
   }
 
-  return { forceTargetBlank, install, setTargetBlank };
+  return {
+    forceExternalTargets,
+    install,
+    isExternalLink,
+    setExternalTargetBlank
+  };
 });

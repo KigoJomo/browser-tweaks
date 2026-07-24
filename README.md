@@ -5,7 +5,7 @@ A lightweight, cross-browser WebExtension for small browser-experience fixes.
 ## Tweaks
 
 - Immediately focuses tabs opened from links without hijacking unrelated tabs.
-- Opens links on GitHub in a new tab.
+- Opens external links on GitHub in a new tab.
 - Removes Shorts shelves from YouTube.
 - Adds Releases beside Code in GitHub repository navigation.
 - Applies a dark theme to fast.com.
