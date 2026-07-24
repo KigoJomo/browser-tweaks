@@ -16,6 +16,7 @@ execFileSync(
     archive,
     "manifest.json",
     "background.js",
+    "src/github-target-blank.js",
     "src/github-releases-nav.js",
     "src/github-releases-nav.css",
     "src/youtube-zen.js",
