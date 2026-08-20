@@ -1,39 +1,30 @@
 # Browser Tweaks
 
-A lightweight, cross-browser WebExtension for small browser-experience fixes.
+A single WebExtension for the browser fixes I kept rebuilding one at a time.
 
-## Tweaks
+| Site or behaviour | Tweak |
+| --- | --- |
+| Tabs opened from links | Focuses the new tab without stealing focus for unrelated background tabs |
+| GitHub | Opens external links in a new tab |
+| GitHub repositories | Adds `Releases` beside `Code` |
+| YouTube | Removes Shorts shelves |
+| fast.com | Replaces the default light page with a dark theme |
 
-- Immediately focuses tabs opened from links without hijacking unrelated tabs.
-- Opens external links on GitHub in a new tab.
-- Removes Shorts shelves from YouTube.
-- Adds Releases beside Code in GitHub repository navigation.
-- Applies a dark theme to fast.com.
+It runs on Chromium browsers and Firefox 121 or newer. There are no runtime dependencies, stored settings, or standalone extension permissions.
 
-It supports Chromium-based browsers and Firefox 121 or newer. It has no runtime
-dependencies, stores no data, and requests no standalone permissions.
+## Load it locally
 
-## Load unpacked
+For Chromium, open `chrome://extensions`, enable developer mode, and choose `Load unpacked`. Select this repository.
 
-### Chromium
-
-1. Open `chrome://extensions`.
-2. Enable **Developer mode**.
-3. Select **Load unpacked** and choose this project directory.
-
-### Firefox
-
-1. Open `about:debugging#/runtime/this-firefox`.
-2. Select **Load Temporary Add-on**.
-3. Choose `manifest.json` in this project directory.
-
-Temporary Firefox add-ons must be reloaded after Firefox restarts.
+For Firefox, open `about:debugging#/runtime/this-firefox`, choose `Load Temporary Add-on`, and select `manifest.json`. Firefox removes temporary add-ons when the browser restarts.
 
 ## Development
 
-```sh
+```bash
 npm run check
 npm run package
 ```
 
-The package command creates `dist/browser-tweaks.zip`.
+`npm run check` validates the manifest and runs the Node test suite. `npm run package` writes `dist/browser-tweaks.zip`.
+
+MIT licensed.
