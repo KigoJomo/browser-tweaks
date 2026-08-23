@@ -8,6 +8,7 @@ A single WebExtension for the browser fixes I kept rebuilding one at a time.
 | GitHub | Opens external links in a new tab |
 | GitHub repositories | Adds `Releases` beside `Code` |
 | YouTube | Removes Shorts shelves |
+| Google Search | Uses `h`, `j`, `k`, and `l` to focus search, move between results, and open the selected result |
 | fast.com | Replaces the default light page with a dark theme |
 
 It runs on Chromium browsers and Firefox 121 or newer. There are no runtime dependencies, stored settings, or standalone extension permissions.
