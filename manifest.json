@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Browser Tweaks",
   "description": "Small, focused browser-experience improvements.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "background": {
     "scripts": ["background.js"],
     "service_worker": "background.js"
@@ -22,6 +22,15 @@
     {
       "matches": ["*://www.youtube.com/*"],
       "js": ["src/youtube-zen.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://google.com/search*",
+        "https://www.google.com/search*"
+      ],
+      "js": ["src/google-vim-nav.js"],
+      "css": ["src/google-vim-nav.css"],
       "run_at": "document_idle"
     },
     {
